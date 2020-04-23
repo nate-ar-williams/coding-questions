@@ -1,0 +1,6 @@
+resulting shuffle is pushed card by card (0-51) onto a list
+
+cards are selected randomly from
+
+
+just one list maybe. initialize in order. each element, sequentially, is set to a random remaining element

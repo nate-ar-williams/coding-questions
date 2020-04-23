@@ -1,0 +1,34 @@
+2, -1, 2
+0, -1, -2
+-2, -1, 0
+1, 2, 3
+3, 2, 1
+1, -2, 2
+1, -2, 0
+-1, 1, -1
+
+in the case of positive, always add
+in the case of negative, add if curSum + negNum > 0
+
+take array A
+two pointers, one to start of seq, one to end
+currentSum = A[start]
+maxSum = -inf
+
+while start < length of A
+
+	if currentSum > maxSum:
+		maxSum = currentSum
+
+	if the pointers are equal
+	 	currentSum is A[start]
+
+	else 
+		if currentSum - A[end] < 0
+			currentSum += A[end]
+			end += 1
+
+		else
+			start += 1
+			end = start
+			currentSum = -inf

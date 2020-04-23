@@ -1,0 +1,25 @@
+i have a O(nlogn) solution, all i can do to improve it is make it O(n)
+
+keeping in mind that in order for there to be a majority element for the whole thing, there must also be a ME for some subsequence
+
+if there's a maj element for one half, then there's a possible maj element for the whole thing
+
+problem is, how can i count without taking up n space
+
+i need > n/2 matches
+
+interestingly, array is of positive integers..
+perhaps getting a sum, min, and max could help
+
+with a sum i can actually rule out any options where num * n/2 >= sum
+once i rule those out, i am potentially left with a smaller list of options
+
+actually another thing i can do is note that in order for there to be a majority element there MUST be a place where two like elements are touching (or they bookend the list)
+
+maybe i run once through the list and find the longest connected sequence of same nums, and then i run through a second time and test it
+
+1 2 2 1 1
+last hint gives strategy: track ME for current substring until there's none; then begin anew
+1 2 1
+1 2 2 2 1 1 2 2 1 1 1 2 2 1 2 1 1
+2 2 2 1 1 1 1

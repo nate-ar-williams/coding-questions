@@ -1,0 +1,6 @@
+given two lists of ints, L1 and L2, find the smallest non-negative difference of L1[x] - L2[y], where x and y are >= 0 and < L1 OR L2 length
+
+plan
+combine lists
+sort new list
+# maybe create dict of value -> original array

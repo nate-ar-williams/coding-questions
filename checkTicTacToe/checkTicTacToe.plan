@@ -1,0 +1,17 @@
+well there are 8 possible combinations, 9 total squares, and it would be a maximum of 24 check to see each combination individually
+
+i want to do this in such a way only ever check each square once
+
+start from top left, check only neighbors
+
+if no neighbors match, move on
+else
+	check once more in same direction
+second we never check to left or up, only down and right
+
+okay let's start from scratch
+BF method:
+	check each possible combination
+	results in checking a lot of cells twice
+
+how do we eliminate the second check

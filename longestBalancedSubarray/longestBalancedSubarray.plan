@@ -1,0 +1,73 @@
+Given an array filled with letters and numbers, find the longest subarray with an equal number of letters and numbers
+
+
+BF solution: for i in array (starting point)
+	for j in array where j > i (ending point)
+		if array[i:J+1] is balanced, and len(array[i:j+1] > max), max = new len
+	return len
+
+	O(n^2)
+
+
+attempt at better solution:
+	keep track of balance at each point in array
+	let balance be how many more numbers we have than letters
+	return longest subarray where balances are equal
+
+
+	so we run through array one time and create another with balances
+	then we run through other array and find largest balanced subarray
+
+	try to think of way to do this without another array?
+	for each balance, keep only leftmost pointer and rightmost pointer
+
+	maybe only keep one rightmost pointer, for longest
+	starting balance is always 0
+
+
+nums:    a 1 2 a
+bal:  0 -1 0 1 0
+
+nums:   a 1  a  b  1 2
+bal: 0 -1 0 -1 -2 -1 0
+
+nums:  3 3 3 a 3 3 3
+bal: 0 1 2 3 2 3 4 5
+
+nums:  1 n 1 1 n
+bal: 0 1 0 1 2 1
+
+test cases:
+[]
+[]
+
+[n, 1]
+[n, 1]
+
+[1, n]
+[1, n]
+
+
+
+	start should be balStart+1, end should be balEnd
+
+
+	set currentBal to 0
+	set max to 0
+	set maxBal to 0 (also unnecessary prob)
+	set maxIndex to 0
+
+	for i in A (where A is array)
+		if A[i] is num, increase currentBal by 1
+		else decrease currentBal
+		if currentBal is positive or 0
+			if posBals[currentBal] doesn't exist (we can know this by seeing is length of posBals < currentBal, since currentBal only ever increases or decreases by one)
+				add i to posBal , it represents starting point
+				
+			else
+				if i - posBals[currentBal] > max
+					max = i - posBals[currentBal]
+		else (currentBal is negative)
+			same logic as pos, just different array
+		
+	return arr[maxBal], maxIndex

@@ -1,0 +1,34 @@
+randomly generate a set of m integers from a list I of size n. each element must have an equal chance of being chosen
+
+brute force:
+	randomly generate num from 1 to n
+	if num is a duplicate, skip
+	insert num into set
+	increase counter
+	repeat until m
+
+runtime complexity is .. confusing
+the trouble is we could just repeatedly hit the same values over and over
+as m approaches n, we should find a runtime of O(m!), even if I contains no dups
+
+removing duplicates method:
+	every time we select a num, remove all instances of that element from I
+
+
+i think this is actually slower.. m * n with no dups
+depends on how many duplicates. the more dups, the longer this takes
+
+
+what if we go through list, count elements, and create dict of {value: frequency}
+
+the trouble is, how do we randomly generate an element then?
+enumerate dict values, create range for each value, then generate num
+
+advantage is dict removal is instant. 
+runtime... this method thrives with dups
+
+
+
+okay this is tricky and i'm not sure it's going anywhere
+
+swap each element to end of list
